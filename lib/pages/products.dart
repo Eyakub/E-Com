@@ -6,6 +6,20 @@ class ProductsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          children: <Widget>[
+            AppBar(
+              automaticallyImplyLeading: false,
+              title: Text("Choose"),
+            ),
+            ListTile(
+              title: Text("Manage Products"),
+              onTap: () {},
+            )
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: Text("EasyList"),
       ),
