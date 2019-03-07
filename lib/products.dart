@@ -29,7 +29,7 @@ class Products extends StatelessWidget {
                         deleteProduct(index);
                       }
                     }),
-              )
+              ),
             ],
           ),
         ],
