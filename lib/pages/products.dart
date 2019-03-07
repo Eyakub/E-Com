@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import '../product_manager.dart';
-import './products_admin.dart';
 
 class ProductsPage extends StatelessWidget {
+
+  final List<Map<String, String>> products;
+ 
+
+  ProductsPage(this.products);
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       drawer: Drawer(
         child: Column(
@@ -26,7 +30,7 @@ class ProductsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("EasyList"),
       ),
-      body: ProductManager(),
+      body: ProductManager(products),
     );
   }
 }

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import './products.dart';
 import './product_list.dart';
 import './product_create.dart';
 
 class ProductsAdminPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return DefaultTabController(
       length: 2, //how many tabs a tablist have
       child: Scaffold(
@@ -20,10 +18,7 @@ class ProductsAdminPage extends StatelessWidget {
                 ListTile(
                   title: Text("All Products"),
                   onTap: () {
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) => ProductsPage()));
+                    Navigator.pushReplacementNamed(context, '/');
                   },
                 )
               ],
