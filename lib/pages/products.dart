@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../product_manager.dart';
+import 'package:flutter_app/product_manager.dart';
 
 class ProductsPage extends StatelessWidget {
 
-  final List<Map<String, String>> products;
+  final List<Map<String, dynamic>> products;
  
 
   ProductsPage(this.products);
