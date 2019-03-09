@@ -11,7 +11,7 @@ class ProductManager extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Expanded(child: Products(products)),
+        Expanded(child: ),
       ],
     );
   }

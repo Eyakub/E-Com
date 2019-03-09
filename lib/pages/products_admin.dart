@@ -22,6 +22,7 @@ ProductsAdminPage(this.addProduct, this.deleteProduct);
                   title: Text("Choose"),
                 ),
                 ListTile(
+                  leading: Icon(Icons.shop),
                   title: Text("All Products"),
                   onTap: () {
                     Navigator.pushReplacementNamed(context, '/products');
