@@ -63,7 +63,7 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
                 'image': 'assets/unnamed.jpg',
               };
               widget.addProduct(product);
-              Navigator.pushReplacementNamed(context, '/');
+              Navigator.pushReplacementNamed(context, '/products');
             },
           ),
         ],

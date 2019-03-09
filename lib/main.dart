@@ -38,6 +38,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       //debugShowMaterialGrid: true,
       theme: ThemeData(
+          // fontFamily: 'Oswald', this font for whole project
           brightness: Brightness.light,
           primarySwatch: Colors.deepOrange,
           accentColor: Colors.deepPurple),

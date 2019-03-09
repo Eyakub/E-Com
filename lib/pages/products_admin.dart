@@ -24,7 +24,7 @@ ProductsAdminPage(this.addProduct, this.deleteProduct);
                 ListTile(
                   title: Text("All Products"),
                   onTap: () {
-                    Navigator.pushReplacementNamed(context, '/');
+                    Navigator.pushReplacementNamed(context, '/products');
                   },
                 )
               ],
