@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+import '../widgets/ui_elements/title_default.dart';
 
 class ProductPage extends StatelessWidget {
   final String title;
   final String imageUrl;
+  final double price;
+  final String description;
 
-  ProductPage(this.title, this.imageUrl);
+  ProductPage(this.title, this.imageUrl, this.price, this.description);
 
   _showWarningDialog(BuildContext context) {
     showDialog(
@@ -33,6 +36,29 @@ class ProductPage extends StatelessWidget {
         });
   }
 
+  Widget _buildAddressPriceRow() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Text(
+          'Union Square, San Francisco',
+          style: TextStyle(fontFamily: 'Oswald', color: Colors.grey),
+        ),
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: 5.0),
+          child: new Text(
+            '|',
+            style: TextStyle(color: Colors.grey),
+          ),
+        ),
+        new Text(
+          '\$' + price.toString(),
+          style: TextStyle(fontFamily: 'Oswald', color: Colors.grey),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -52,18 +78,26 @@ class ProductPage extends StatelessWidget {
               Image.asset(imageUrl),
               Container(
                 padding: EdgeInsets.all(10.0),
-                child: Text(title),
+                child: TitleDefault(title),
               ),
+              _buildAddressPriceRow(),
               Container(
                 padding: EdgeInsets.all(10.0),
-                child: RaisedButton(
-                  color: Theme.of(context).accentColor,
-                  child: Text("Delete"),
-                  textColor: Colors.white,
-                  // onPressed: () => Navigator.pop(context, true),
-                  onPressed: () => _showWarningDialog(context),
+                child: Text(
+                  description,
+                  textAlign: TextAlign.center,
                 ),
               ),
+              // Container(
+              //   padding: EdgeInsets.all(10.0),
+              //   child: RaisedButton(
+              //     color: Theme.of(context).accentColor,
+              //     child: Text("Delete"),
+              //     textColor: Colors.white,
+              //     // onPressed: () => Navigator.pop(context, true),
+              //     onPressed: () => _showWarningDialog(context),
+              //   ),
+              // ),
             ],
           ),
         ),
