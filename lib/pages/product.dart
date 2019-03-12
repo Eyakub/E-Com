@@ -10,31 +10,31 @@ class ProductPage extends StatelessWidget {
 
   ProductPage(this.title, this.imageUrl, this.price, this.description);
 
-  _showWarningDialog(BuildContext context) {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text("Are you sure?"),
-            content: Text("This action can't be undone"),
-            actions: <Widget>[
-              FlatButton(
-                child: Text("Discard"),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-              FlatButton(
-                child: Text("Continue"),
-                onPressed: () {
-                  Navigator.pop(context);
-                  Navigator.pop(context, true);
-                },
-              )
-            ],
-          );
-        });
-  }
+  // _showWarningDialog(BuildContext context) {
+  //   showDialog(
+  //       context: context,
+  //       builder: (BuildContext context) {
+  //         return AlertDialog(
+  //           title: Text("Are you sure?"),
+  //           content: Text("This action can't be undone"),
+  //           actions: <Widget>[
+  //             FlatButton(
+  //               child: Text("Discard"),
+  //               onPressed: () {
+  //                 Navigator.pop(context);
+  //               },
+  //             ),
+  //             FlatButton(
+  //               child: Text("Continue"),
+  //               onPressed: () {
+  //                 Navigator.pop(context);
+  //                 Navigator.pop(context, true);
+  //               },
+  //             )
+  //           ],
+  //         );
+  //       });
+  // }
 
   Widget _buildAddressPriceRow() {
     return Row(
