@@ -86,7 +86,8 @@ class _ProductEditPageState extends State<ProductEditPage> {
     );
   }
 
-  void _saveRaisedButton(Function addProduct, Function updateProduct, Function setSelectedProduct,
+  void _saveRaisedButton(
+      Function addProduct, Function updateProduct, Function setSelectedProduct,
       [int selectedProductIndex]) {
     if (!_formKey.currentState.validate()) {
       return;
@@ -120,8 +121,11 @@ class _ProductEditPageState extends State<ProductEditPage> {
           color: Theme.of(context).accentColor,
           textColor: Colors.white,
           child: Text("Save"),
-          onPressed: () => _saveRaisedButton(model.addProduct, model.updateProduct,
-              model.selectProduct, model.selectedProductIndex),
+          onPressed: () => _saveRaisedButton(
+              model.addProduct,
+              model.updateProduct,
+              model.selectProduct,
+              model.selectedProductIndex),
         );
       },
     );
