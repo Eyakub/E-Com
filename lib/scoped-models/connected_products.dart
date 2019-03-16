@@ -77,19 +77,20 @@ class ProductsModel extends ConnectedProductsModel {
     return _showFavorites;
   }
 
-  void updateProduct(
+  Future<Null> updateProduct(
       String title, String description, String image, double price) {
     _isLoading = true;
     notifyListeners();
     final Map<String, dynamic> updateData = {
       'title': title,
       'description': description,
-      'image': 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/02/13/10/chocolate-istock.jpg',
+      'image':
+          'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/02/13/10/chocolate-istock.jpg',
       'price': price,
       'userEmail': selectedProduct.userEmail,
       'userId': selectedProduct.userId,
     };
-    http
+    return http
         .put(
             'https://flutter-app-9488a.firebaseio.com/products/${selectedProduct.id}.json',
             body: json.encode(updateData))
@@ -111,15 +112,26 @@ class ProductsModel extends ConnectedProductsModel {
   }
 
   void deleteProduct() {
-    _products.removeAt(selectedProductIndex);
-    //_selProductIndex = null;
-    notifyListeners();
-  }
-
-  void fetchProducts() {
     _isLoading = true;
+    final deletedProductId =selectedProduct.id;
+    _products.removeAt(selectedProductIndex);
+    _selProductIndex = null;
     notifyListeners();
     http
+        .delete(
+            'https://flutter-app-9488a.firebaseio.com/products/${deletedProductId}.json')
+        .then((http.Response response) {
+      _isLoading = false;
+     
+      //_selProductIndex = null;
+      notifyListeners();
+    });
+  }
+
+  Future<Null> fetchProducts() {
+    _isLoading = true;
+    notifyListeners();
+    return http
         .get('https://flutter-app-9488a.firebaseio.com/products.json')
         .then((http.Response response) {
       final List<Product> fetchedProductList = [];
@@ -153,6 +165,7 @@ class ProductsModel extends ConnectedProductsModel {
     final bool isCurrentlyFavorite = _products[selectedProductIndex].isFavorite;
     final bool newFavoriteStatus = !isCurrentlyFavorite;
     final Product updateProduct = Product(
+        id: selectedProduct.id,
         title: selectedProduct.title,
         description: selectedProduct.description,
         price: selectedProduct.price,
